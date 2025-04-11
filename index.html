@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Для моєї киці</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .message {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #02180c;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      display: none;
+      animation: slideIn 0.5s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .message img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .message-content {
+      display: flex;
+      align-items: center;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-buttons {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="hearts-container"></div>
+  <div id="slides">
+    <div class="slide active">
+      <h1>Привіт киця ❤️</h1>
+      <p data-typing>До речі, я тебе дуже кохаю!</p>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar"> <!-- Замініть на свій аватар -->
+          <span>Повідомлення від Коті - ти гарна😍</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1 data-typing>Я усвідомив, що хочу зробити щось особливе для тебе</h1>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - ти особлива❤️</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1 data-typing>Тому, що ти особлива ❤️</h1>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - ти найкраща!💋</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="search-box">
+        <p data-typing>Сьогодні до речі нам 10 місяців, ти пам'ятаєш?</p>
+        <button id="searchBtn">Так</button>
+      </div>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - я тебе кохаю❤️</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Ну я трішки нагадаю тобі 💌</h1>
+      <p data-typing>Ось наша найважливіша дата в наших відносинах:</p>
+      <h2>12.06.2024</h2>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - важлива дата❤️</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Я кохаю тебе вже...</h1>
+      <div id="timer"></div>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - завжди разом🫂</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Наш перший поцілунок</h1>
+      <p data-typing>Це було пізно ввечері, під дощем і блискавкою, коли я приїхав на легендарному 17 трамваї...</p>
+      <img class="photo" src="first-kiss.jpg" alt="Наш перший поцілунок">
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - перший поцілунок💋</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Наші заходи сонця</h1>
+      <div class="gallery">
+        <img src="sunset1.jpg" alt="Заходи сонця">
+        <img src="sunset2.jpg" alt="Заходи сонця">
+        <img src="sunset3.jpg" alt="Заходи сонця">
+        <img src="sunset4.jpg" alt="Заходи сонця">
+      </div>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - заходи сонця з тобою❤️</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="split">
+        <div class="left">
+          <pre data-typing>
+# Я ж все таки програміст,
+# тож пишу код, щоб показати своє особливе кохання до тебе.
+# 25 травня 2024 року, моє життя кардинально змінилося, тому що я зустрів тебе.
+# Пізніше ми розпочали нашу історію кохання.
+# Ми насолоджуємося один одним, підтримуємо та віримо один в одного.
+# Проводимо час разом, від якого метелики в животі.
+# Іноді між нами можуть бути конфлікти, непорозуміння тощо.
+# Але це відносини, і це цілком нормально.
+# Головне, що ми це можемо подолати, зробити висновки, змінюватися один для одного та йти далі.
+# Ти - найбільше кохання мого життя.
+# Наші стосунки - це найдорожче, що я маю, і я хочу, щоб вони тривали вічно.
+# Кожен день з тобою - це найбільше щастя в моєму житті.
+# Я кохатиму тебе вічно!
+# Твій котя.
+</pre>
+        </div>
+        <div class="right">
+          <div class="heart">киця ❤️</div>
+        </div>
+      </div>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - ми разом назавжди❤️</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Для моєї киці від її коті ❤️</h1>
+      <div class="gallery">
+        <img src="photo1.jpg" alt="Фото 1">
+        <img src="photo2.jpg" alt="Фото 2">
+        <img src="photo3.jpg" alt="Фото 3">
+        <img src="photo4.jpg" alt="Фото 4">
+        <img src="photo5.jpg" alt="Фото 5">
+        <img src="photo6.jpg" alt="Фото 6">
+        <img src="photo7.jpg" alt="Фото 7">
+        <img src="photo8.jpg" alt="Фото 8">
+        <img src="photo9.jpg" alt="Фото 9">
+        <img src="photo10.jpg" alt="Фото 10">
+      </div>
+      <div class="message">
+        <div class="message-content">
+          <img src="your-avatar.jpg" alt="Avatar">
+          <span>Повідомлення від Коті - незабутні моменти❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <button id="prevBtn">Гортай назад</button>
+    <button id="candleModeBtn">Романтичний режим 🕯️</button>
+    <button id="nextBtn">Гортай далі</button>
+  </div>
+  <div id="stars-container"></div>
+
+  <script src="main.js"></script>
+  <script>
+    // JS для відображення повідомлень
+    let messages = document.querySelectorAll('.message');
+    let slideIndex = 0;
+
+    function showMessage() {
+      if (slideIndex < messages.length) {
+        messages[slideIndex].style.display = 'block';
+        setTimeout(() => {
+          messages[slideIndex].style.display = 'none';
+          slideIndex++;
+          showMessage();
+        }, 5000); // Відображається повідомлення 5 секунд
+      }
+    }
+
+    showMessage();
+  </script>
+</body>
+</html>

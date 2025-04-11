@@ -1,0 +1,318 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, #f8bbd0, #fce4ec);
+  cursor: url('paw-cursor.png'), auto !important;
+  overflow-x: hidden;
+  transition: background 1s;
+}
+
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart-float {
+  position: absolute;
+  color: #f06292;
+  font-size: 24px;
+  animation: floatHearts 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  transition: all 0.5s ease;
+}
+
+.slide.active {
+  display: flex;
+}
+
+h1, p, pre {
+  color: #b71c1c;
+  white-space: pre-wrap;
+  overflow: hidden;
+  border-right: .15em solid #f06292;
+  animation: fadeInText 2s ease-out;
+  display: inline-block;
+}
+
+h1.typing-done, p.typing-done, pre.typing-done {
+  border-right: none;
+}
+
+.gallery img, .photo {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover, .photo:hover {
+  transform: scale(1.05);
+}
+
+.nav-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.nav-buttons button {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0px 5px 10px 40px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 5px rgb(220, 220, 220);
+}
+
+.nav-buttons button:hover {
+  background-color: #f06292;
+  color: white;
+  transform: scale(1.1);
+}
+
+.split {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.left, .right {
+  flex: 1;
+  padding: 20px;
+}
+
+.heart {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #f8bbd0, #fce4ec);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f06292;
+  animation: drawHeart 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes drawHeart {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.search-box {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.search-box button {
+  background-color: #f06292;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 15px;
+  align-self: center;
+}
+
+.search-box button:hover {
+  background-color: #d81b60;
+  transform: scale(1.1);
+}
+
+.slide pre {
+  text-align: left;
+  direction: ltr;
+  color: #880e4f;
+  font-size: 16px;
+  animation: none;
+}
+
+.slide .left::before {
+  content: '❤️';
+  display: block;
+  font-size: 80px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* 🧡 АДАПТИВНІ СТИЛІ ДЛЯ ПЛАНШЕТІВ */
+@media (max-width: 1024px) {
+  .slide {
+    padding: 10px;
+  }
+
+  .gallery img, .photo {
+    width: 150px;
+  }
+
+  .split {
+    flex-direction: column;
+  }
+
+  .heart {
+    width: 150px;
+    height: 150px;
+    font-size: 30px;
+  }
+}
+
+/* 💛 АДАПТАЦІЯ ДЛЯ СМАРТФОНІВ */
+@media (max-width: 768px) {
+  h1, p, pre {
+    font-size: 16px;
+  }
+
+  .gallery img, .photo {
+    width: 100px;
+    margin: 5px;
+  }
+
+  .nav-buttons button {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .search-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .split {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    padding: 10px;
+  }
+
+  .heart {
+    width: 120px;
+    height: 120px;
+    font-size: 24px;
+  }
+}
+
+#stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+body.candle-mode {
+  background: radial-gradient(ellipse at center, #2c003e, #000000);
+  color: #fff;
+}
+
+.candle-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #ffcc80 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  z-index: 0; /* Нижчий пріоритет */
+  pointer-events: none; /* Важливо! */
+  animation: candleFlicker 2s infinite;
+}
+
+@keyframes candleFlicker {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.2; }
+}
